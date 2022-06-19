@@ -5,6 +5,7 @@ const dbOperation = require("./dbFiles/dbOperation");
 const app = express();
 let mysql = require("mysql2");
 const { sign } = require("jsonwebtoken");
+require("dotenv").config();
 
 let port = process.env.PORT || 5000;
 
@@ -102,8 +103,13 @@ app.get("/full-messages", async (req, res) => {
 
 //-------------------------------------------------------------------------------
 
-db.sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+db.sequelize
+  .sync()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Listening on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
-});
