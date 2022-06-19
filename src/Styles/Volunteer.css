@@ -1,0 +1,107 @@
+.volunteer-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  background-color: rgba(244, 244, 244, 0.573);
+}
+
+.volunteer-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.volunteer-header h1 {
+  margin: 20px 0;
+}
+
+.all-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
+  max-width: 700px;
+  background-color: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
+}
+
+.back {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 30px;
+  /* background-color: red; */
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 5px;
+}
+.back-btn {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  color: rgb(57, 57, 57);
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.all-form .button {
+  margin: unset;
+}
+
+.apply-bg {
+  background-color: rgba(0, 0, 0, 0.381);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+
+.show-apply-bg {
+  display: flex;
+  padding: 10px;
+}
+
+.apply-alert {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid rgba(128, 128, 128, 0.422);
+  max-width: 444px;
+}
+.apply-alert h1 {
+  margin-bottom: 20px;
+}
+.apply-alert p {
+  line-height: 25px;
+}
+.apply-alert .button {
+  margin-top: 20px;
+}

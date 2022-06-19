@@ -1,0 +1,224 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgba(244, 244, 244, 0.573);
+}
+
+.full-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100vw;
+  padding: 15px;
+}
+
+.full-list h2 {
+  margin-bottom: 10px;
+}
+
+.admin-nav {
+  border-bottom: 0.5px solid gray;
+}
+.admin-nav .links {
+  font-size: 1.2rem;
+}
+.panel-container {
+  background-color: rgba(244, 244, 244, 0.573);
+  min-height: 100vh;
+  /* width: 100vw !important; */
+  /* overflow-x: auto; */
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.login-card {
+  width: 90%;
+  max-width: 450px;
+  height: 254px;
+  background: #f4f6fb;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+}
+
+.login-form {
+  padding: 25px;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+}
+
+.login-card svg {
+  color: #7878bd;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+.form_heading {
+  padding-bottom: 20px;
+  font-size: 21px;
+  color: #7878bd;
+}
+
+.field {
+  padding-bottom: 10px;
+}
+
+.login-input {
+  border-radius: 5px;
+  background-color: #e9e9f7;
+  padding: 5px;
+  width: 100%;
+  color: #7a7ab3;
+  border: 1px solid #dadaf7;
+}
+
+.login-input:focus-visible {
+  outline: 1px solid #aeaed6;
+}
+
+.login-input::placeholder {
+  color: #bcbcdf;
+}
+
+.label {
+  color: #b2bac8;
+  font-size: 14px;
+  display: block;
+  padding-bottom: 4px;
+}
+
+.btn-login {
+  background-color: #7878bd;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 7px 12px;
+  font-weight: 500;
+  color: white;
+  transition: all ease-in-out 0.6s;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #5f5f9c;
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#customers {
+  font-family: "Barlow", sans-serif;
+  border-collapse: collapse;
+  width: 100vw;
+  /* background-color: red; */
+  overflow-x: scroll;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#customers td {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.message-table td,
+.message-table th {
+  white-space: unset;
+}
+
+#customers th {
+  font-size: 0.85rem;
+  font-family: "Oswald", sans-serif;
+  white-space: nowrap;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(124, 93, 250);
+  color: white;
+}
+.msg-card {
+  border: 0.5px solid rgba(128, 128, 128, 0.665);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 90%;
+  border-radius: 5px;
+  padding: 20px;
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1); */
+}
+.msg-card a {
+  font-family: "Barlow", sans-serif !important;
+  color: black !important;
+  margin-bottom: 4px;
+}
+.msg-wrapper {
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+.msg-head {
+  margin-left: 20px;
+  margin: 20px 0 20px 20px;
+}
+.msg-strong {
+  font-weight: 600;
+}
+.msg-text {
+  margin: 10px 0;
+  color: rgb(81, 81, 81);
+}
+.all-msgs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 5px;
+  justify-items: center;
+}
+.vol-header {
+  /* background-color: red; */
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.vol-header h2 {
+  font-size: 1rem;
+  margin-right: 20px;
+}
