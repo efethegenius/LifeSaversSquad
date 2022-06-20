@@ -11,7 +11,7 @@ const { sign } = require("jsonwebtoken");
 // });
 
 let con = mysql.createConnection({
-  host: "Localhost",
+  host: "localhost",
   user: "root",
   password: "samjeffi015",
   database: "lifesaverssquaddb",

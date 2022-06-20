@@ -25,7 +25,7 @@ app.use("/create", create);
 //   database: "u526753639_lssquad",
 // });
 let con = mysql.createConnection({
-  host: "Localhost",
+  host: "localhost",
   user: "root",
   password: "samjeffi015",
   database: "lifesaverssquaddb",
