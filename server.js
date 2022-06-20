@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("./models");
 const cors = require("cors");
 const dbOperation = require("./dbFiles/dbOperation");
 const app = express();
@@ -103,13 +102,6 @@ app.get("/full-messages", async (req, res) => {
 
 //-------------------------------------------------------------------------------
 
-db.sequelize
-  .sync()
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`Listening on port ${port}`);
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
