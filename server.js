@@ -21,26 +21,26 @@ app.use("/create", create);
 //Login-------------------------------------------------------------------------------
 app.post("/user_login", async (req, res) => {
   try {
-    await dbOperation.con.connect(function (err) {
-      if (err) throw err;
-      console.log("Connected!");
-      let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
-      dbOperation.con.query(sql, function (err, result) {
-        if (err) console.log(err);
-        if (result[0] === undefined) {
-          return { error: "Username or Password is incorrect" };
-        }
-        console.log(result);
-        const accessToken = sign(
-          {
-            username: result[0].SignOnName,
-            id: result[0].id,
-          },
-          "7JUU39959Eohyue"
-        );
-        res.json(accessToken);
-      });
+    // await dbOperation.con.connect(function (err) {
+    let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
+    dbOperation.pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      if (result[0] === undefined) {
+        return { error: "Username or Password is incorrect" };
+      }
+      console.log(result);
+      const accessToken = sign(
+        {
+          username: result[0].SignOnName,
+          id: result[0].id,
+        },
+        "7JUU39959Eohyue"
+      );
+      res.json(accessToken);
     });
+    // if (err) throw err;
+    console.log("Connected!");
+    // });
     // dbOperation.con.end();
   } catch (error) {
     console.log(error);
@@ -50,17 +50,17 @@ app.post("/user_login", async (req, res) => {
 // getting volunteers--------------------------------------------------------------
 app.get("/full-volunteer", async (req, res) => {
   try {
-    await dbOperation.con.connect(function (err) {
-      if (err) throw err;
-      console.log("Connected!");
-      let sql = `select * from vw_volunteers Order by id desc`;
-      dbOperation.con.query(sql, function (err, result) {
-        if (err) console.log(err);
-        // console.log(result);
-        // return result;
-        res.json({ name: result });
-      });
+    // await dbOperation.con.connect(function (err) {
+    let sql = `select * from vw_volunteers Order by id desc`;
+    dbOperation.pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      // console.log(result);
+      // return result;
+      res.json({ name: result });
     });
+    // if (err) throw err;
+    console.log("Connected!");
+    // });
   } catch (error) {
     console.log(error);
   }
@@ -68,15 +68,15 @@ app.get("/full-volunteer", async (req, res) => {
 
 app.get("/full-messages", async (req, res) => {
   try {
-    await dbOperation.con.connect(function (err) {
-      if (err) throw err;
-      console.log("Connected!");
-      let sql = `select * from vw_messages Order by id desc`;
-      dbOperation.con.query(sql, function (err, result) {
-        if (err) console.log(err);
-        res.json({ name: result });
-      });
+    // await dbOperation.con.connect(function (err) {
+    let sql = `select * from vw_messages Order by id desc`;
+    dbOperation.pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      res.json({ name: result });
     });
+    // if (err) throw err;
+    console.log("Connected!");
+    // });
     // dbOperation.con.end();
   } catch (error) {
     console.log(error);
