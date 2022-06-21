@@ -34,15 +34,11 @@ const pool = createPool({
 
 const createVolunteer = async (volunteer) => {
   try {
-    // await con.connect(function (err) {
     let sql = `call sp_NewVolunteer ('${volunteer.firstName}', '${volunteer.lastName}', '${volunteer.email}', '${volunteer.number}','${volunteer.bestTime}','${volunteer.street}','${volunteer.city}','${volunteer.state}','${volunteer.zip}','${volunteer.questionOne}','${volunteer.questionTwo}','${volunteer.questionThree}','${volunteer.comments}')`;
     pool.query(sql, function (err, result, fields) {
       if (err) console.log(err);
     });
-    // if (err) throw err;
     console.log("Connected!");
-    // });
-    // con.end();
   } catch (error) {
     console.log(error);
   }
@@ -50,15 +46,11 @@ const createVolunteer = async (volunteer) => {
 
 const createMessage = async (message) => {
   try {
-    // await con.connect(function (err) {
     let sql = `call sp_NewMessage ('${message.name}', '${message.email}', '${message.messages}')`;
     pool.query(sql, function (err, result, fields) {
       if (err) console.log(err);
     });
-    // if (err) throw err;
     console.log("Connected!");
-    // });
-    // con.end();
   } catch (error) {
     console.log(error);
   }
@@ -67,6 +59,5 @@ const createMessage = async (message) => {
 module.exports = {
   createMessage,
   createVolunteer,
-  // con,
   pool,
 };

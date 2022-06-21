@@ -13,7 +13,11 @@ const create = require("./Routes/create");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use("/api", api);
 app.use("/create", create);
@@ -23,6 +27,7 @@ app.post("/user_login", async (req, res) => {
   try {
     // await dbOperation.con.connect(function (err) {
     let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
+    console.log(req.body.SignOnName);
     dbOperation.pool.query(sql, function (err, result, fields) {
       if (err) console.log(err);
       if (result[0] === undefined) {
