@@ -41,6 +41,7 @@ app.post("/user_login", async (req, res) => {
         res.json(accessToken);
       });
     });
+    // dbOperation.con.end();
   } catch (error) {
     console.log(error);
   }
@@ -76,6 +77,7 @@ app.get("/full-messages", async (req, res) => {
         res.json({ name: result });
       });
     });
+    // dbOperation.con.end();
   } catch (error) {
     console.log(error);
   }
