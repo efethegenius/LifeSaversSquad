@@ -18,25 +18,6 @@ app.use(cors());
 app.use("/api", api);
 app.use("/create", create);
 
-// let con = mysql.createConnection({
-//   host: "195.179.237.162",
-//   user: "u526753639_root",
-//   password: "Samjeffi.015",
-//   database: "u526753639_lssquad",
-// });
-// let con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "samjeffi015",
-//   database: "lifesaverssquaddb",
-// });
-
-// con.connect((err) => {
-//   if (err) return console.log(err.stack);
-
-//   console.log("remote connection successfull");
-// });
-
 //Login-------------------------------------------------------------------------------
 app.post("/user_login", async (req, res) => {
   try {
