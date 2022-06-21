@@ -24,12 +24,12 @@ app.use("/create", create);
 //   password: "Samjeffi.015",
 //   database: "u526753639_lssquad",
 // });
-let con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "samjeffi015",
-  database: "lifesaverssquaddb",
-});
+// let con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "samjeffi015",
+//   database: "lifesaverssquaddb",
+// });
 
 // con.connect((err) => {
 //   if (err) return console.log(err.stack);
@@ -40,11 +40,11 @@ let con = mysql.createConnection({
 //Login-------------------------------------------------------------------------------
 app.post("/user_login", async (req, res) => {
   try {
-    await con.connect(function (err) {
+    await dbOperation.con.connect(function (err) {
       if (err) throw err;
       console.log("Connected!");
       let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
-      con.query(sql, function (err, result) {
+      dbOperation.con.query(sql, function (err, result) {
         if (err) console.log(err);
         if (result[0] === undefined) {
           return { error: "Username or Password is incorrect" };
@@ -68,11 +68,11 @@ app.post("/user_login", async (req, res) => {
 // getting volunteers--------------------------------------------------------------
 app.get("/full-volunteer", async (req, res) => {
   try {
-    await con.connect(function (err) {
+    await dbOperation.con.connect(function (err) {
       if (err) throw err;
       console.log("Connected!");
       let sql = `select * from vw_volunteers Order by id desc`;
-      con.query(sql, function (err, result) {
+      dbOperation.con.query(sql, function (err, result) {
         if (err) console.log(err);
         // console.log(result);
         // return result;
@@ -86,11 +86,11 @@ app.get("/full-volunteer", async (req, res) => {
 
 app.get("/full-messages", async (req, res) => {
   try {
-    await con.connect(function (err) {
+    await dbOperation.con.connect(function (err) {
       if (err) throw err;
       console.log("Connected!");
       let sql = `select * from vw_messages Order by id desc`;
-      con.query(sql, function (err, result) {
+      dbOperation.con.query(sql, function (err, result) {
         if (err) console.log(err);
         res.json({ name: result });
       });
