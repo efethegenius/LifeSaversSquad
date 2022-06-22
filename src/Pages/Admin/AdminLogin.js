@@ -49,7 +49,7 @@ export const AdminLogin = () => {
       console.log(newData);
       setReturnedData(newData);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
