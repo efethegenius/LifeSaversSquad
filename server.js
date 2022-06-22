@@ -13,12 +13,19 @@ const create = require("./Routes/create");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 
-var corsOptions = {
-  origin: "http://localhost:3000",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+// var corsOptions = {
+//   origin: "http://localhost:3000",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 app.use("/api", api);
 app.use("/create", create);
@@ -33,7 +40,7 @@ app.use("/create", create);
 // });
 
 //Login-------------------------------------------------------------------------------
-app.post("/user_login", cors(corsOptions), async (req, res, next) => {
+app.post("/user_login", async (req, res, next) => {
   try {
     // await dbOperation.con.connect(function (err) {
     let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
