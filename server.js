@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const dbOperation = require("./dbFiles/dbOperation");
 const app = express();
 let mysql = require("mysql2");
@@ -13,38 +13,21 @@ const create = require("./Routes/create");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  })
-);
-
-// var corsOptions = {
-//   origin: "http://localhost:3000",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
+// app.use(cors());
 
 app.use("/api", api);
 app.use("/create", create);
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //Login-------------------------------------------------------------------------------
-app.post("/user_login", async (req, res, next) => {
+app.post("/user_login", async (req, res) => {
   try {
     // await dbOperation.con.connect(function (err) {
     let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
-    console.log(req.body.SignOnName);
     dbOperation.pool.query(sql, function (err, result, fields) {
       if (err) console.log(err);
       if (result[0] === undefined) {
@@ -60,10 +43,7 @@ app.post("/user_login", async (req, res, next) => {
       );
       res.json(accessToken);
     });
-    // if (err) throw err;
     console.log("Connected!");
-    // });
-    // dbOperation.con.end();
   } catch (error) {
     console.log(error);
   }

@@ -35,5 +35,6 @@ export const photos = [
   // "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
   "https://v5.airtableusercontent.com/v1/4/4/1655942400000/QDFMjc_XjeeCsGmutpVy0Q/D4jg0S34Ohnqm2kq-VLqRKgvvnuMR--BSs2ht0MTcu3jybfVDhCO6_u7ZhOBzd3Z5AveKB-jG8-aTkxXgRowJg/ELI5CRKQ8HDgsWcY7puXPyw5hohLopnxTGGMQn2Yqk0",
   "https://v5.airtableusercontent.com/v1/4/4/1655942400000/fwi09269FYgDh2Z_mtKCag/ZgXoag2RDkC1tCLW-mHqmc-38q5NthZI0PfrTPl1wNv8luVNZgODuvkPiiNxR3r78Bl9tNFeG6srnVzVgQuNpg/6EUPkfwdqgihlmLp_-PBt7lvREdBZeIbjzgHlnJF3KE",
-  "https://v5.airtableusercontent.com/v1/4/4/1655942400000/cX71q8t4pfCXaRJ-izf7iw/z81Ng6vvTUu8inMcMwbx2xpU874nqAOdoYaboRmvyXIIt-uqzA4jTfH0lN7QnLI_IzORbmBz7QDe-XkMkUMsbg/waAPRyn9EoMagPiDjTDTXt9aF7r2quXL54-GAS65vyM",
+  // "https://v5.airtableusercontent.com/v1/4/4/1655942400000/cX71q8t4pfCXaRJ-izf7iw/z81Ng6vvTUu8inMcMwbx2xpU874nqAOdoYaboRmvyXIIt-uqzA4jTfH0lN7QnLI_IzORbmBz7QDe-XkMkUMsbg/waAPRyn9EoMagPiDjTDTXt9aF7r2quXL54-GAS65vyM",
+  "https://dl.airtable.com/.attachmentThumbnails/d9866d1ac19e6708ed234664c9930021/8a9ffdd4",
 ];

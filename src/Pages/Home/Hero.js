@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FaTimes } from "react-icons/fa";
-import hero from "../../Photos/happy children landing.png";
-import wave from "../../Photos/hero-wave.png";
 import { Fade } from "react-awesome-reveal";
 import { Body } from "./Body";
 import { Footer } from "./Footer";
