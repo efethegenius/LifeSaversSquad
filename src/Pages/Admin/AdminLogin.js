@@ -25,7 +25,7 @@ export const AdminLogin = () => {
 
   const newLogin = async () => {
     try {
-      const newData = await fetch("https://lssapi.herokuapp.com/user_login", {
+      const newData = await fetch("/user_login", {
         method: "POST",
         headers: {
           "content-type": "application/json",

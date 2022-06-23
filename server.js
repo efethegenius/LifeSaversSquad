@@ -15,6 +15,13 @@ const pool = createPool({
   database: "u526753639_lssquad",
   connectionLimit: 10,
 });
+// const pool = createPool({
+//   host: "localhost",
+//   user: "root",
+//   password: "samjeffi015",
+//   database: "lifesaverssquaddb",
+//   connectionLimit: 10,
+// });
 
 let port = process.env.PORT || 5000;
 
@@ -36,7 +43,7 @@ app.use("/api", api);
 app.use("/create", create);
 
 //Login-------------------------------------------------------------------------------------------------------------------------------
-router.post("/user_login", async (req, res) => {
+app.post("/user_login", async (req, res) => {
   try {
     // await dbOperation.con.connect(function (err) {
     let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
