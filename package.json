@@ -2,7 +2,7 @@
   "name": "volunteer",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://lssapi.herokuapp.com/",
+  "proxy": "https://lssapi.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
