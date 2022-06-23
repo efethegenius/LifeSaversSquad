@@ -4,6 +4,7 @@ const dbOperation = require("./dbFiles/dbOperation");
 const app = express();
 let mysql = require("mysql2");
 const { sign } = require("jsonwebtoken");
+const router = express.Router();
 require("dotenv").config();
 
 let port = process.env.PORT || 5000;
@@ -26,7 +27,7 @@ app.use("/api", api);
 app.use("/create", create);
 
 //Login-------------------------------------------------------------------------------------------------------------------------------
-app.post("/user_login", async (req, res) => {
+router.post("/user_login", async (req, res) => {
   try {
     // await dbOperation.con.connect(function (err) {
     let sql = `SELECT * FROM tbl_admins where SignOnName = '${req.body.SignOnName}' and UserPassword = sha1('${req.body.UserPassword}')`;
