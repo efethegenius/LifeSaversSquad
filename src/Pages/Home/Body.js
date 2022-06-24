@@ -19,16 +19,19 @@ export const Body = () => {
   });
 
   const newMessage = async () => {
-    const newData = await fetch("/create/brand_message", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        ...message,
-      }),
-    }).then((res) => res.json());
+    const newData = await fetch(
+      "https://lssapi.herokuapp.com/create/brand_message",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          ...message,
+        }),
+      }
+    ).then((res) => res.json());
     setReturnedData(newData[0]);
     setIsApply(true);
   };
