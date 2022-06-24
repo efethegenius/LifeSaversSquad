@@ -15,20 +15,20 @@ const { createPool } = require("mysql2");
 //   database: "u526753639_lssquad",
 //   connectionLimit: 10,
 // });
-// const pool = createPool({
-//   host: "localhost",
-//   user: "root",
-//   password: "samjeffi015",
-//   database: "lifesaverssquaddb",
-//   connectionLimit: 10,
-// });
 const pool = createPool({
-  host: "us-cdbr-east-05.cleardb.net",
-  user: "bd1edf92834177",
-  password: "09db9dbd",
-  database: "heroku_33f8664d1651bdc",
+  host: "localhost",
+  user: "root",
+  password: "samjeffi015",
+  database: "lifesaverssquaddb",
   connectionLimit: 10,
 });
+// const pool = createPool({
+//   host: "us-cdbr-east-05.cleardb.net",
+//   user: "bd1edf92834177",
+//   password: "09db9dbd",
+//   database: "heroku_33f8664d1651bdc",
+//   connectionLimit: 10,
+// });
 
 let port = process.env.PORT || 5000;
 
