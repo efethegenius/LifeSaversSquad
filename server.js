@@ -8,13 +8,13 @@ const router = express.Router();
 require("dotenv").config();
 const { createPool } = require("mysql2");
 
-const pool = createPool({
-  host: "195.179.237.162",
-  user: "u526753639_root",
-  password: "Samjeffi.015",
-  database: "u526753639_lssquad",
-  connectionLimit: 10,
-});
+// const pool = createPool({
+//   host: "195.179.237.162",
+//   user: "u526753639_root",
+//   password: "Samjeffi.015",
+//   database: "u526753639_lssquad",
+//   connectionLimit: 10,
+// });
 // const pool = createPool({
 //   host: "localhost",
 //   user: "root",
@@ -22,6 +22,13 @@ const pool = createPool({
 //   database: "lifesaverssquaddb",
 //   connectionLimit: 10,
 // });
+const pool = createPool({
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "bd1edf92834177",
+  password: "09db9dbd",
+  database: "heroku_33f8664d1651bdc",
+  connectionLimit: 10,
+});
 
 let port = process.env.PORT || 5000;
 
@@ -30,14 +37,7 @@ const create = require("./Routes/create");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  })
-);
+app.use(cors());
 
 app.use("/api", api);
 app.use("/create", create);
