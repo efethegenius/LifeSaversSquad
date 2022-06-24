@@ -12,6 +12,14 @@ const { createPool } = require("mysql2");
 //   connectionLimit: 10,
 // });
 
+// const pool = createPool({
+//   host: "localhost",
+//   user: "root",
+//   password: "samjeffi015",
+//   database: "lifesaverssquaddb",
+//   connectionLimit: 10,
+// });
+
 const pool = createPool({
   host: "us-cdbr-east-05.cleardb.net",
   user: "bd1edf92834177",
@@ -44,8 +52,33 @@ const createMessage = async (message) => {
   }
 };
 
+const getLogin = async (user) => {
+  try {
+    // await dbOperation.con.connect(function (err) {
+    let sql = `SELECT * FROM tbl_admins where SignOnName = '${user.SignOnName}' and UserPassword = sha1('${user.UserPassword}')`;
+    pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      if (result[0] === undefined) {
+        return { error: "Username or Password is incorrect" };
+      }
+      const accessToken = sign(
+        {
+          username: result[0].SignOnName,
+          id: result[0].id,
+        },
+        "7JUU39959Eohyue"
+      );
+      res.json(accessToken);
+    });
+    console.log("Connected!");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createMessage,
   createVolunteer,
+  getLogin,
   pool,
 };
