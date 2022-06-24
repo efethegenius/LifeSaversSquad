@@ -4,33 +4,21 @@ let mysql = require("mysql2");
 const { sign } = require("jsonwebtoken");
 const { createPool } = require("mysql2");
 
-// let con = mysql.createConnection({
+// const pool = createPool({
 //   host: "195.179.237.162",
 //   user: "u526753639_root",
 //   password: "Samjeffi.015",
 //   database: "u526753639_lssquad",
+//   connectionLimit: 10,
 // });
 
 const pool = createPool({
-  host: "195.179.237.162",
-  user: "u526753639_root",
-  password: "Samjeffi.015",
-  database: "u526753639_lssquad",
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "bd1edf92834177",
+  password: "09db9dbd",
+  database: "heroku_33f8664d1651bdc",
   connectionLimit: 10,
 });
-
-// let con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "samjeffi015",
-//   database: "lifesaverssquaddb",
-// });
-
-// con.connect((err) => {
-//   if (err) return console.log(err.stack);
-
-//   console.log("remote connection successfull");
-// });
 
 const createVolunteer = async (volunteer) => {
   try {
