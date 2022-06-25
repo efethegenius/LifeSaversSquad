@@ -126,6 +126,7 @@ export const AdminPanel = () => {
                 <th>Heard About Us</th>
                 <th>Available Days</th>
                 <th>Additional Comments</th>
+                <th>Trained</th>
               </tr>
             </tbody>
             {returnedVolunteers.name &&
@@ -146,6 +147,7 @@ export const AdminPanel = () => {
                   Hear_About_Us,
                   Available_Days,
                   Additional_Comments,
+                  isTrained,
                 } = volunteer;
                 const newDate = `${new Date(createdAt).toLocaleDateString()}`;
                 return (
@@ -165,6 +167,7 @@ export const AdminPanel = () => {
                       <td>{Hear_About_Us}</td>
                       <td>{Available_Days}</td>
                       <td>{Additional_Comments}</td>
+                      <td>{isTrained}</td>
                     </tr>
                   </tbody>
                 );
