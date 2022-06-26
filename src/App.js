@@ -11,6 +11,7 @@ import "./Styles/Orbit.css";
 import "./Styles/Volunteer.css";
 import "./Styles/Input.css";
 import "./Styles/Admin.css";
+import "./Styles/Table.css";
 import { AuthContext } from "./helpers/AuthContext";
 import { Hero } from "./Pages/Home/Hero";
 import { Volunteer } from "./Pages/Volunteer/Volunteer";

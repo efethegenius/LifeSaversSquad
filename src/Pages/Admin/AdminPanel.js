@@ -1,44 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FaTimes } from "react-icons/fa";
 import logo from "../../Photos/logo.png";
+import {
+  useTable,
+  useGlobalFilter,
+  useFilters,
+  usePagination,
+  useRowSelect,
+} from "react-table";
+import { COLUMNS } from "../Components/Columns";
+import { GlobalFilter } from "../Components/GlobalFilter";
+import { ColumnFilter } from "../Components/ColumnFilter";
+import { Checkbox } from "../Components/Checkbox";
 
 export const AdminPanel = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [returnedVolunteers, setReturnedVolunteers] = useState([]);
   const [search, setSearch] = useState("");
-  const [volunteers, setVolunteers] = useState(
-    returnedVolunteers && returnedVolunteers
-  );
-
-  const filtered =
-    returnedVolunteers.name && search
-      ? returnedVolunteers.name.filter(
-          (volunteer) =>
-            volunteer.FirstName.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.LastName.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.City.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.Street.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.Zip.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.DateRegistered.toLowerCase().includes(
-              search.toLowerCase()
-            ) ||
-            volunteer.Previously_Volunteered_Here.toLowerCase().includes(
-              search.toLowerCase()
-            ) ||
-            volunteer.State.toLowerCase().includes(search.toLowerCase()) ||
-            volunteer.Contact_Time.toLowerCase().includes(
-              search.toLowerCase()
-            ) ||
-            volunteer.Hear_About_Us.toLowerCase().includes(
-              search.toLowerCase()
-            ) ||
-            volunteer.Available_Days.toLowerCase().includes(
-              search.toLowerCase()
-            )
-        )
-      : returnedVolunteers.name;
 
   const getAllVolunteers = async () => {
     try {
@@ -62,6 +42,62 @@ export const AdminPanel = () => {
   useEffect(() => {
     getAllVolunteers();
   }, []);
+
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => [], []);
+  const defaultColumn = useMemo(() => {
+    return {
+      Filter: ColumnFilter,
+    };
+  });
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    headerGroups,
+    prepareRow,
+    state,
+    setGlobalFilter,
+    gotoPage,
+    pageCount,
+    setPageSize,
+    selectedFlatRows,
+  } = useTable(
+    {
+      columns,
+      data,
+      defaultColumn,
+    },
+    useFilters,
+    useGlobalFilter,
+    usePagination,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => {
+        return [
+          {
+            id: "selection",
+            Header: ({ getToggleAllRowsSelectedProps }) => (
+              <Checkbox {...getToggleAllRowsSelectedProps()} />
+            ),
+            Cell: ({ row }) => (
+              <Checkbox {...row.getToggleRowSelectedProps()} />
+            ),
+          },
+          ...columns,
+        ];
+      });
+    }
+  );
+
+  const { globalFilter, pageIndex, pageSize } = state;
+
   return (
     <div className="panel-container">
       <div className="nav-container admin-nav">
@@ -109,70 +145,84 @@ export const AdminPanel = () => {
           </div>
         </div>
         <div className="table-container">
-          <table id="customers">
-            <tbody className="table-head">
-              <tr>
-                <th>Date Joined</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>State</th>
-                <th>City</th>
-                <th>Street</th>
-                <th>Zip</th>
-                <th>Best Contact Time</th>
-                <th>Previously Volunteered?</th>
-                <th>Heard About Us</th>
-                <th>Available Days</th>
-                <th>Additional Comments</th>
-                <th>Trained</th>
-              </tr>
-            </tbody>
-            {returnedVolunteers.name &&
-              filtered.map((volunteer) => {
-                const {
-                  id,
-                  createdAt,
-                  FirstName,
-                  LastName,
-                  Email,
-                  PhoneNumber,
-                  Contact_Time,
-                  State,
-                  City,
-                  Street,
-                  Zip,
-                  Previously_Volunteered_Here,
-                  Hear_About_Us,
-                  Available_Days,
-                  Additional_Comments,
-                  isTrained,
-                } = volunteer;
-                const newDate = `${new Date(createdAt).toLocaleDateString()}`;
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>
+                      {column.render("Header")}
+                      <div>
+                        {column.canFilter ? column.render("Filter") : null}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row) => {
+                prepareRow(row);
                 return (
-                  <tbody key={id}>
-                    <tr>
-                      <td>{newDate}</td>
-                      <td>{FirstName}</td>
-                      <td>{LastName}</td>
-                      <td>{Email}</td>
-                      <td>{PhoneNumber}</td>
-                      <td>{State}</td>
-                      <td>{City}</td>
-                      <td>{Street}</td>
-                      <td>{Zip}</td>
-                      <td>{Contact_Time}</td>
-                      <td>{Previously_Volunteered_Here}</td>
-                      <td>{Hear_About_Us}</td>
-                      <td>{Available_Days}</td>
-                      <td>{Additional_Comments}</td>
-                      <td>{isTrained}</td>
-                    </tr>
-                  </tbody>
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      );
+                    })}
+                  </tr>
                 );
               })}
+            </tbody>
           </table>
+          <div>
+            <span>
+              Page{" "}
+              <strong>
+                {pageIndex + 1} of {pageOptions.length}
+              </strong>{" "}
+            </span>
+            <span>
+              | Go to page:{" "}
+              <input
+                type="number"
+                defaultValue={pageIndex + 1}
+                onChange={(e) => {
+                  const pageNumber = e.target.value
+                    ? Number(e.target.value) - 1
+                    : 0;
+                  gotoPage(pageNumber);
+                }}
+                style={{ width: "50px" }}
+              />
+            </span>
+            <select
+              value={pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
+            >
+              {[10, 25, 50].map((pageSize) => (
+                <option key={pageSize} value={pageSize}>
+                  Show {pageSize}
+                </option>
+              ))}
+            </select>
+            <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+              {"<<"}
+            </button>
+            <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+              Previous
+            </button>
+            <button onClick={() => nextPage()} disabled={!canNextPage}>
+              Next
+            </button>
+            <button
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={!canNextPage}
+            >
+              {">>"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

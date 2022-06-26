@@ -59,7 +59,7 @@ app.get("/full-volunteer", async (req, res) => {
       if (err) console.log(err);
       // console.log(result);
       // return result;
-      res.json({ name: result });
+      res.json(result);
     });
     // if (err) throw err;
     console.log("Connected!");
