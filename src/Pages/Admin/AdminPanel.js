@@ -97,26 +97,6 @@ export const AdminPanel = () => {
     }
   );
   const { globalFilter, pageIndex, pageSize } = state;
-
-  // const updateTrainee = async () => {
-  //   const newData = await fetch("/create/update_trainee", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       ...{
-  //         selectedFlatRows: selectedFlatRows.map((row) => row.original),
-  //       },
-  //     }),
-  //   }).then((res) => res.json());
-  //   setReturnedData(newData[0]);
-  // };
-  // const handleSubmit = () => {
-  //   updateTrainee();
-  // };
-
   return (
     <div className="panel-container">
       <div className="nav-container admin-nav">
@@ -125,8 +105,6 @@ export const AdminPanel = () => {
           className={isMenu ? "show-menu menu-container" : "menu-container"}
           onClick={() => setIsMenu(false)}
         >
-          {/* <img src={logo} alt="logo" className="logo" /> */}
-          {/* <div className="menu-links"> */}
           <Link to="/admin" className="links active">
             Trained
           </Link>
@@ -136,10 +114,6 @@ export const AdminPanel = () => {
           <Link to="/training" className="links">
             In-training
           </Link>
-
-          {/* <Link to="/messages" className="links">
-            Messages
-          </Link> */}
           <Link to="/" className="links">
             Home
           </Link>
@@ -152,16 +126,8 @@ export const AdminPanel = () => {
         )}
       </div>
       <div className="full-list">
-        <div className="vol-header">{/* <h2>ALL VOLUNTEERS</h2> */}</div>
         <div className="table-header">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-          {/* <button
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
-            Mark as trained
-          </button> */}
         </div>
         <div className="table-container">
           <table {...getTableProps()}>

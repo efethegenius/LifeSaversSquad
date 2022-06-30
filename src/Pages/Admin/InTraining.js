@@ -19,7 +19,6 @@ import { Checkbox } from "../Components/Checkbox";
 export const InTraining = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [returnedVolunteers, setReturnedVolunteers] = useState([]);
-  const [search, setSearch] = useState("");
   const [returnedData, setReturnedData] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isApply, setIsApply] = useState(false);
@@ -148,7 +147,6 @@ export const InTraining = () => {
           onClick={() => setIsMenu(false)}
         >
           <img src={logo} alt="logo" className="logo" />
-          {/* <div className="menu-links"> */}
           <Link to="/admin" className="links">
             Trained
           </Link>
@@ -158,14 +156,9 @@ export const InTraining = () => {
           <Link to="/training" className="links active">
             In-training
           </Link>
-          {/* 
-          <Link to="/messages" className="links">
-            Messages
-          </Link> */}
           <Link to="/" className="links">
             Home
           </Link>
-          {/* </div> */}
         </div>
         {isMenu ? (
           <FaTimes className="ham-menu" onClick={() => setIsMenu(!isMenu)} />
@@ -174,7 +167,6 @@ export const InTraining = () => {
         )}
       </div>
       <div className="full-list">
-        <div className="vol-header">{/* <h2>ALL VOLUNTEERS</h2> */}</div>
         <div className="table-header">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
           <button

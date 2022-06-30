@@ -19,7 +19,6 @@ import { Checkbox } from "../Components/Checkbox";
 export const UntrainedVolunteers = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [returnedVolunteers, setReturnedVolunteers] = useState([]);
-  const [search, setSearch] = useState("");
   const [returnedData, setReturnedData] = useState([]);
   const [isApply, setIsApply] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -147,8 +146,6 @@ export const UntrainedVolunteers = () => {
           className={isMenu ? "show-menu menu-container" : "menu-container"}
           onClick={() => setIsMenu(false)}
         >
-          {/* <h2>LifeSaversSquad</h2> */}
-          {/* <div className="menu-links"> */}
           <Link to="/admin" className="links">
             Trained
           </Link>
@@ -158,14 +155,9 @@ export const UntrainedVolunteers = () => {
           <Link to="/training" className="links">
             In-training
           </Link>
-
-          {/* <Link to="/messages" className="links">
-            Messages
-          </Link> */}
           <Link to="/" className="links">
             Home
           </Link>
-          {/* </div> */}
         </div>
         {isMenu ? (
           <FaTimes className="ham-menu" onClick={() => setIsMenu(!isMenu)} />
