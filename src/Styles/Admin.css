@@ -11,10 +11,14 @@
 
 .full-list {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   width: 100vw;
   padding: 15px;
+}
+
+.err {
+  color: red;
 }
 
 .full-list h2 {
@@ -35,6 +39,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  position: relative;
 }
 .login-card {
   width: 90%;
@@ -95,7 +100,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .table-header {
@@ -252,4 +257,14 @@
 .vol-header h2 {
   font-size: 1rem;
   margin-right: 20px;
+}
+@media screen and (min-width: 450px) {
+  .table-nav {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
 }

@@ -85,6 +85,18 @@ app.get("/untrained-volunteer", async (req, res) => {
     console.log(error);
   }
 });
+app.get("/training-volunteer", async (req, res) => {
+  try {
+    let sql = `select * from vw_volunteers where isTrained = 2 Order by id desc`;
+    dbOperation.pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      res.json(result);
+    });
+    console.log("Connected!");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.get("/full-messages", async (req, res) => {
   try {

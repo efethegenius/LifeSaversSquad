@@ -117,23 +117,26 @@ export const AdminPanel = () => {
   return (
     <div className="panel-container">
       <div className="nav-container admin-nav">
-        <img src={logo} alt="logo" className="logo" />
+        <h2>LifeSaversSquad</h2>
         <div
           className={isMenu ? "show-menu menu-container" : "menu-container"}
           onClick={() => setIsMenu(false)}
         >
-          <img src={logo} alt="logo" className="logo" />
+          {/* <img src={logo} alt="logo" className="logo" /> */}
           {/* <div className="menu-links"> */}
-          <Link to="/admin" className="links">
+          <Link to="/admin" className="links active">
             Trained
           </Link>
           <Link to="/untrained" className="links">
             UnTrained
           </Link>
-
-          <Link to="/messages" className="links">
-            Messages
+          <Link to="/training" className="links">
+            In-training
           </Link>
+
+          {/* <Link to="/messages" className="links">
+            Messages
+          </Link> */}
           <Link to="/" className="links">
             Home
           </Link>

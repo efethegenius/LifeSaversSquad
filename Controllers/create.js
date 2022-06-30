@@ -1,9 +1,4 @@
 const dbOperation = require("../dbFiles/dbOperation");
-
-// const createNewVolunteer = async (req, res) => {
-//   await dbOperation.createNewVolunteer(req.body);
-//   res.json({ code: 1, msg: "success" });
-// };
 const createVolunteer = async (req, res) => {
   await dbOperation.createVolunteer(req.body);
   res.json({ code: 1, msg: "success" });
@@ -16,15 +11,14 @@ const updateTrainee = async (req, res) => {
   await dbOperation.updateTrainee(req.body);
   res.json({ code: 1, msg: "success" });
 };
-// const createNewMessage = async (req, res) => {
-//   await dbOperation.createNewMessage(req.body);
-//   res.json({ code: 1, msg: "success" });
-// };
+const updateTraining = async (req, res) => {
+  await dbOperation.updateTraining(req.body);
+  res.json({ code: 1, msg: "success" });
+};
 
 module.exports = {
-  // createNewVolunteer,
   createVolunteer,
-  // createNewMessage,
   createMessage,
   updateTrainee,
+  updateTraining,
 };

@@ -16,17 +16,17 @@ import { GlobalFilter } from "../Components/GlobalFilter";
 import { ColumnFilter } from "../Components/ColumnFilter";
 import { Checkbox } from "../Components/Checkbox";
 
-export const UntrainedVolunteers = () => {
+export const InTraining = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [returnedVolunteers, setReturnedVolunteers] = useState([]);
   const [search, setSearch] = useState("");
   const [returnedData, setReturnedData] = useState([]);
-  const [isApply, setIsApply] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isApply, setIsApply] = useState(false);
 
   const getAllVolunteers = async () => {
     try {
-      const allVolunteers = await fetch("/untrained-volunteer", {
+      const allVolunteers = await fetch("/training-volunteer", {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -98,8 +98,8 @@ export const UntrainedVolunteers = () => {
   );
   const { globalFilter, pageIndex, pageSize } = state;
 
-  const updateTraining = async () => {
-    const newData = await fetch("/create/update_training", {
+  const updateTrainee = async () => {
+    const newData = await fetch("/create/update_trainee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -123,7 +123,7 @@ export const UntrainedVolunteers = () => {
   };
 
   const handleSubmit = () => {
-    selectedFlatRows.length < 1 ? handleError() : updateTraining();
+    selectedFlatRows.length < 1 ? handleError() : updateTrainee();
   };
 
   return (
@@ -131,7 +131,7 @@ export const UntrainedVolunteers = () => {
       <div className={isApply ? "apply-bg show-apply-bg" : "apply-bg"}>
         <Fade>
           <div className="apply-alert">
-            <h1>Volunteer successfully added to the training list!</h1>
+            <h1>Volunteer successfully added to Trained list!</h1>
             <button className="button" onClick={() => setIsApply(false)}>
               OK
             </button>
@@ -144,19 +144,19 @@ export const UntrainedVolunteers = () => {
           className={isMenu ? "show-menu menu-container" : "menu-container"}
           onClick={() => setIsMenu(false)}
         >
-          {/* <h2>LifeSaversSquad</h2> */}
+          <img src={logo} alt="logo" className="logo" />
           {/* <div className="menu-links"> */}
           <Link to="/admin" className="links">
             Trained
           </Link>
-          <Link to="/untrained" className="links active">
+          <Link to="/untrained" className="links">
             UnTrained
           </Link>
-          <Link to="/training" className="links">
+          <Link to="/training" className="links active">
             In-training
           </Link>
-
-          {/* <Link to="/messages" className="links">
+          {/* 
+          <Link to="/messages" className="links">
             Messages
           </Link> */}
           <Link to="/" className="links">
@@ -170,8 +170,8 @@ export const UntrainedVolunteers = () => {
           <HiMenuAlt1 className="ham-menu" onClick={() => setIsMenu(!isMenu)} />
         )}
       </div>
-
       <div className="full-list">
+        <div className="vol-header">{/* <h2>ALL VOLUNTEERS</h2> */}</div>
         <div className="table-header">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
           <button
@@ -179,7 +179,7 @@ export const UntrainedVolunteers = () => {
               handleSubmit();
             }}
           >
-            Add to training list
+            Certify as trained
           </button>
         </div>
         {isError && <p className="err">Please select at least one trainee</p>}

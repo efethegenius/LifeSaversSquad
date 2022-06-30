@@ -19,6 +19,11 @@
   --black-text: rgb(12, 14, 22);
 }
 
+.active {
+  color: var(--light-blue) !important;
+  font-weight: 600 !important;
+}
+
 h1,
 h2,
 h3,
