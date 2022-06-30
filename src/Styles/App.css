@@ -30,7 +30,8 @@ h5,
 h6,
 span,
 p,
-label {
+label,
+ul {
   font-family: var(--barlow);
 }
 

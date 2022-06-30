@@ -39,18 +39,20 @@ export const Footer = () => {
             spy={true}
             // activeClass="active"
             // offset={-10}
+            offset={-60}
           >
             <p>Home</p>
           </ScrollLink>
           <ScrollLink
-            to="images"
+            to="reason"
             smooth={true}
             duration={2000}
             spy={true}
             // activeClass="active"
             // offset={-10}
+            offset={-60}
           >
-            <p>Services</p>
+            <p>Benefits</p>
           </ScrollLink>
           <ScrollLink
             to="body-wrapper"
@@ -58,7 +60,7 @@ export const Footer = () => {
             duration={2000}
             spy={true}
             // activeClass="active"
-            offset={-20}
+            offset={-60}
           >
             <p>About us</p>
           </ScrollLink>
@@ -69,18 +71,19 @@ export const Footer = () => {
             spy={true}
             // activeClass="active"
             // offset={-10}
+            offset={-60}
           >
-            <p>Testimonials</p>
+            <p>Quotes</p>
           </ScrollLink>
           <ScrollLink
-            to="contact-us"
+            to="sponsors"
             smooth={true}
             duration={2000}
             spy={true}
             // activeClass="active"
-            // offset={-10}
+            offset={-60}
           >
-            <p>Contact us</p>
+            <p>Sponsors</p>
           </ScrollLink>
           <Link to="/volunteer" className="button footer-btn">
             Become a volunteer
@@ -92,13 +95,13 @@ export const Footer = () => {
         </div>
         <div className="quick-links contact-link">
           <h1>CONTACT US</h1>
-          <p>
+          {/* <p>
             <ImLocation className="contact-icon" />
             No 12, address street, location, Lagos
-          </p>
+          </p> */}
           <p>
             <AiFillPhone className="contact-icon" />
-            +23400 000 0000
+            +23480 6888 6692
           </p>
           <p>
             <AiFillMail className="contact-icon" />
@@ -110,7 +113,7 @@ export const Footer = () => {
             BECOME A VOLUNTEER
           </Link> */}
           {/* <h1 className="footer-logo sm-ft-logo">LIFE SAVERS SQUAD</h1> */}
-          <img src={logo} alt="logo" className="footer-logo" />
+          {/* <img src={logo} alt="logo" className="footer-logo" /> */}
         </div>
       </div>
 

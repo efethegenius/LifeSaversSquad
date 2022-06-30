@@ -54,7 +54,24 @@ app.post("/user_login", async (req, res) => {
 app.get("/full-volunteer", async (req, res) => {
   try {
     // await dbOperation.con.connect(function (err) {
-    let sql = `select * from vw_volunteers Order by id desc`;
+    let sql = `select * from vw_volunteers where isTrained = 1 Order by id desc`;
+    dbOperation.pool.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      // console.log(result);
+      // return result;
+      res.json(result);
+    });
+    // if (err) throw err;
+    console.log("Connected!");
+    // });
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.get("/untrained-volunteer", async (req, res) => {
+  try {
+    // await dbOperation.con.connect(function (err) {
+    let sql = `select * from vw_volunteers where isTrained = 0 Order by id desc`;
     dbOperation.pool.query(sql, function (err, result, fields) {
       if (err) console.log(err);
       // console.log(result);

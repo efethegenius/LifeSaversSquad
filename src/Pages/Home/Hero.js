@@ -13,6 +13,13 @@ export const Hero = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [index, setIndex] = useState(0);
 
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 70);
+    });
+  }, []);
+
   let homePhotos = photos[Math.floor(Math.random() * photos.length)];
 
   useEffect(() => {
@@ -39,13 +46,15 @@ export const Hero = () => {
         <div className="urgent-nav">
           <h3>NEED URGENT HELP ? CALL 08068886692</h3>
         </div>
-        <div className="nav-container">
-          <img src={logo} alt="Logo" className="logo" />
+        <div className={scroll ? "nav-container scroll-nav" : "nav-container"}>
+          {/* <img src={logo} alt="Logo" className="logo" /> */}
+          <h1>LifeSaversSquad</h1>
           <div
             className={isMenu ? "show-menu menu-container" : "menu-container"}
             onClick={() => setIsMenu(false)}
           >
-            <img src={logo} alt="logo" className="logo" />
+            {/* <img src={logo} alt="logo" className="logo" /> */}
+            <h1>LifeSaversSquad</h1>
             <div className="menu-links">
               <ScrollLink
                 to="hero-container"
@@ -54,58 +63,61 @@ export const Hero = () => {
                 spy={true}
                 // activeClass="active"
                 // offset={-10}
+                offset={-60}
               >
                 <p onClick={() => setIsMenu(false)}>Home</p>
               </ScrollLink>
               <ScrollLink
                 to="body-wrapper"
                 smooth={true}
-                duration={2000}
+                duration={3000}
                 spy={true}
                 // activeClass="active"
-                offset={-20}
+                offset={-60}
               >
                 <p onClick={() => setIsMenu(false)}>About Us</p>
               </ScrollLink>
               <ScrollLink
                 to="core"
                 smooth={true}
-                duration={2000}
+                duration={3000}
                 spy={true}
                 // activeClass="active"
-                offset={-20}
+                offset={-60}
               >
                 <p onClick={() => setIsMenu(false)}>Values</p>
               </ScrollLink>
               <ScrollLink
                 to="reviews"
                 smooth={true}
-                duration={2000}
+                duration={3000}
                 spy={true}
                 // activeClass="active"
                 // offset={-10}
+                offset={-60}
               >
-                <p onClick={() => setIsMenu(false)}>Testimonials</p>
+                <p onClick={() => setIsMenu(false)}>Quotes</p>
               </ScrollLink>
               <ScrollLink
-                to="images"
+                to="reason"
                 smooth={true}
-                duration={2000}
+                duration={3000}
                 spy={true}
                 // activeClass="active"
-                offset={-20}
+                offset={-60}
               >
-                <p onClick={() => setIsMenu(false)}>Services</p>
+                <p onClick={() => setIsMenu(false)}>Benefits</p>
               </ScrollLink>
               <ScrollLink
-                to="contact-us"
+                to="sponsors"
                 smooth={true}
-                duration={2000}
+                duration={3000}
                 spy={true}
                 // activeClass="active"
                 // offset={-10}
+                offset={-60}
               >
-                <p onClick={() => setIsMenu(false)}>Contact Us</p>
+                <p onClick={() => setIsMenu(false)}>Sponsors</p>
               </ScrollLink>
             </div>
             <Link to="/volunteer" className="button menu-btn">
@@ -130,9 +142,8 @@ export const Hero = () => {
             <Fade triggerOnce duration={1500} direction="left">
               <h2>LET'S HELP OTHERS</h2>
               <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia Curae; Nulla mollis dapibus nunc, ut rhoncus
-                turpis sodales quis. Integer sit amet mattis quam.
+                The life savers squad is a squad of volunteers determined to
+                improve the public health and safety in the Ikoyi community.
               </p>
             </Fade>
             <Link to="/volunteer" className="button">

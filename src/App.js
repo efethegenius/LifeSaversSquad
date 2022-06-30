@@ -19,6 +19,7 @@ import { AdminLogin } from "./Pages/Admin/AdminLogin";
 import { AdminPanel } from "./Pages/Admin/AdminPanel";
 import { useState, useEffect } from "react";
 import { Messages } from "./Pages/Admin/Messages";
+import { UntrainedVolunteers } from "./Pages/Admin/UntrainedVolunteers";
 function App() {
   const [authState, setAuthState] = useState(false);
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/untrained" element={<UntrainedVolunteers />} />
           <Route
             path="/admin"
             element={authState ? <AdminPanel /> : <AdminLogin />}

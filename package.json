@@ -2,7 +2,7 @@
   "name": "volunteer",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://lssapi.herokuapp.com/",
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -26,6 +26,7 @@
     "react-scroll": "^1.8.7",
     "react-slick": "^0.29.0",
     "react-table": "^7.8.0",
+    "react-transition-group": "^4.4.2",
     "serverless-http": "^3.0.1",
     "serverless-mysql": "^1.5.4",
     "slick-carousel": "^1.8.1",

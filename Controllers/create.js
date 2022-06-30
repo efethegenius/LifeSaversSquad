@@ -12,6 +12,10 @@ const createMessage = async (req, res) => {
   await dbOperation.createMessage(req.body);
   res.json({ code: 1, msg: "success" });
 };
+const updateTrainee = async (req, res) => {
+  await dbOperation.updateTrainee(req.body);
+  res.json({ code: 1, msg: "success" });
+};
 // const createNewMessage = async (req, res) => {
 //   await dbOperation.createNewMessage(req.body);
 //   res.json({ code: 1, msg: "success" });
@@ -22,4 +26,5 @@ module.exports = {
   createVolunteer,
   // createNewMessage,
   createMessage,
+  updateTrainee,
 };

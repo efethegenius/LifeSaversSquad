@@ -26,19 +26,16 @@ export const Volunteer = () => {
   });
 
   const newVolunteer = async () => {
-    const newData = await fetch(
-      "https://lssapi.herokuapp.com/create/brand_volunteer",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...volunteer,
-        }),
-      }
-    ).then((res) => res.json());
+    const newData = await fetch("/create/brand_volunteer", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        ...volunteer,
+      }),
+    }).then((res) => res.json());
     setReturnedData(newData[0]);
     setIsApply(true);
   };
@@ -82,7 +79,7 @@ export const Volunteer = () => {
       </div>
       <div className="all-form">
         <div className="volunteer-header">
-          <img src={logo} alt="logo" className="logo" />
+          {/* <img src={logo} alt="logo" className="logo" /> */}
           <h1>Volunteer Form</h1>
           <p>
             There are many variations of passages of Lorem Ipsum available, but

@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { reviews } from "../Components/data";
 import nurse from "../../Photos/pexels-joshua-mcknight-1139315.jpg";
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaQuoteRight,
+  FaRandom,
+} from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import { GoToTop } from "../Components/GoToTop";
+import rotary from "../../Photos/ROTARY.png";
+import ri from "../../Photos/RI-International.png";
 
 export const Body = () => {
   const [core, setCore] = useState("mission");
@@ -19,19 +26,16 @@ export const Body = () => {
   });
 
   const newMessage = async () => {
-    const newData = await fetch(
-      "https://lssapi.herokuapp.com/create/brand_message",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...message,
-        }),
-      }
-    ).then((res) => res.json());
+    const newData = await fetch("/create/brand_message", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        ...message,
+      }),
+    }).then((res) => res.json());
     setReturnedData(newData[0]);
     setIsApply(true);
   };
@@ -106,14 +110,11 @@ export const Body = () => {
             </div>
             <h1>WHAT WE CAN ACHIEVE WITH YOUR HELP</h1>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for 'lorem ipsum' will
-              uncover.
+              We play a central and critical role in improving access and
+              quality health care for the community. We provide essential
+              services that promote health, prevent diseases and deliver health
+              care services to individuals and families in the community based
+              on the primary health care approach.
             </p>
           </Fade>
           <Link to="/volunteer" className="button">
@@ -132,36 +133,36 @@ export const Body = () => {
               onClick={() => setCore("mission")}
               className={core === "mission" ? "active-core-btn" : ""}
             >
-              OUR MISSION
+              OUR PROJECT
             </button>
             <button
               onClick={() => setCore("vision")}
               className={core === "vision" ? "active-core-btn" : ""}
             >
-              OUR VISION
+              OUR OBJECTIVES
             </button>
             <button
               onClick={() => setCore("values")}
               className={core === "values" ? "active-core-btn" : ""}
             >
-              OUR VALUES
+              OUR GOAL
             </button>
           </Fade>
         </div>
         {core === "mission" && (
           <div className="core-container">
-            <Fade direction="up" duration={2000} triggerOnce>
-              <h1>TO BUILD AND RESTORE</h1>
+            <Fade duration={2000} triggerOnce>
+              <h1>ESTABLISH A VOLUNTEERS GROUP</h1>
               <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia, looked up
-                one of the more obscure Latin words, consectetur, from a Lorem
-                Ipsum passage, and going through the cites of the word in
-                classical literature, discovered the undoubtable source.
+                Volunteering with us allows you to connect to your community and
+                make it a better place. Even helping out with the smallest tasks
+                can make a real difference to the lives of people in need.
+                Joining the LifeSaversSquad is a two-way street: It can benefit
+                you and your family as much as the cause you choose to help.
+                Dedicating your time as a volunteer helps you make new friends,
+                expand your network, and boost your social skills too.
               </p>
-              <div className="stats">
+              {/* <div className="stats">
                 <div>
                   <h2>210+</h2>
                   <p>Volunteers</p>
@@ -174,59 +175,57 @@ export const Body = () => {
                   <h2>2000+</h2>
                   <p>Missions</p>
                 </div>
-              </div>
+              </div> */}
             </Fade>
           </div>
         )}
         {core === "vision" && (
           <div className="core-container">
-            <Fade direction="up" duration={2000} triggerOnce>
-              <h1>SAVE THE WORLD</h1>
-              <p>
-                Richard McClintock, a Latin professor at Hampden-Sydney College
-                in Virginia, looked up one of the more obscure Latin words,
-                consectetur, from a Lorem Ipsum passage, and going through the
-                cites of the word in classical literature, discovered the
-                undoubtable source.The standard chunk of Lorem Ipsum used since
-                the 1500s is reproduced below for those interested. Sections
-                1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
-                Cicero are also reproduced in their exact original form,
-                accompanied by English versions from the 1914 translation by H.
-                Rackham.
-              </p>
-              <div className="stats">
-                <div>
-                  <h2>210+</h2>
-                  <p>Volunteers</p>
-                </div>
-                <div>
-                  <h2>600+</h2>
-                  <p>People helped</p>
-                </div>
-                <div>
-                  <h2>2000+</h2>
-                  <p>Missions</p>
-                </div>
-              </div>
+            <Fade duration={2000} triggerOnce>
+              <h1>OBJECTIVES</h1>
             </Fade>
+            <ul>
+              <li>To enhance the public health and safety in the community.</li>
+              <li>To involve our community in health care delivery.</li>
+              <li>
+                To improve the spirit of volunteering in community activities
+                (spirit of citizenship).
+              </li>
+              <li>
+                To create awareness of assisting persons in distress and Not a
+                photographs taking party.
+              </li>
+              <li>Reduce cases of sudden death.</li>
+            </ul>
+            {/* <div className="stats">
+              <div>
+                <h2>210+</h2>
+                <p>Volunteers</p>
+              </div>
+              <div>
+                <h2>600+</h2>
+                <p>People helped</p>
+              </div>
+              <div>
+                <h2>2000+</h2>
+                <p>Missions</p>
+              </div>
+            </div> */}
           </div>
         )}
         {core === "values" && (
           <div className="core-container">
-            <Fade direction="up" duration={2000} triggerOnce>
-              <h1>INTEGRITY AND HONOR</h1>
+            <Fade duration={2000} triggerOnce>
+              <h1>GOAL</h1>
               <p>
-                Sydney College in Virginia, looked up one of the more obscure
-                Latin words, consectetur, from a Lorem Ipsum passage, and going
-                through the cites of the word in classical literature,
-                discovered the undoubtable source.The standard chunk of Lorem
-                Ipsum used since the 1500s is reproduced below for those
-                interested. Sections 1.10.32 and 1.10.33 from "de Finibus
-                Bonorum et Malorum" by Cicero are also reproduced in their exact
-                original form, accompanied by English versions from the 1914
-                translation by H. Rackham.
+                Our goal is the promotion of better health and wellbeing of the
+                people in the community. Having access to basic medical care and
+                resources, hygiene campaigns and health education enables people
+                to live longer, happier and more productive lives. Our
+                volunteers would work to promote better health and wellbeing
+                outcomes.
               </p>
-              <div className="stats">
+              {/* <div className="stats">
                 <div>
                   <h2>210+</h2>
                   <p>Volunteers</p>
@@ -239,20 +238,23 @@ export const Body = () => {
                   <h2>2000+</h2>
                   <p>Missions</p>
                 </div>
-              </div>
+              </div> */}
             </Fade>
           </div>
         )}
       </div>
       {/* <Fade triggerOnce duration={2000} direction="up"> */}
+      <h1 className="rev-header rev-header-1 reason">BENEFITS</h1>
       <div className="images">
         <div className="card">
           <div className="content">
-            <h2 className="title">Make A Change</h2>
+            <h2 className="title">Provides a sense of community</h2>
             <p className="des">
-              Sydney College in Virginia, looked up one of the more obscure
-              Latin words, consectetur, from a Lorem Ipsum passage, and going
-              through the cites of the word
+              Joining LifeSaversSquad can help you feel connected to those you
+              are helping in the community. This experience may make you want to
+              get involved with other aspects of your community, such as
+              advocating for programs you believe are important or local
+              politics.
             </p>
             <Link to="/volunteer" className="btn">
               Join Us
@@ -261,11 +263,12 @@ export const Body = () => {
         </div>
         <div className="card">
           <div className="content">
-            <h2 className="title">Make A Difference</h2>
+            <h2 className="title">Teach you valuable skills</h2>
             <p className="des">
-              Sydney College in Virginia, looked up one of the more obscure
-              Latin words, consectetur, from a Lorem Ipsum passage, and going
-              through the cites of the word
+              The training and hands-on experience you gain while volunteering
+              with us can help you learn new skills as well as build upon ones
+              you already have. You’ll gain valuable communication, public
+              speaking, marketing and other hard and soft skills.
             </p>
             <Link to="/volunteer" className="btn">
               Join Us
@@ -274,11 +277,13 @@ export const Body = () => {
         </div>
         <div className="card">
           <div className="content">
-            <h2 className="title">Come Together</h2>
+            <h2 className="title">Meet New Friends</h2>
             <p className="des">
-              Sydney College in Virginia, looked up one of the more obscure
-              Latin words, consectetur, from a Lorem Ipsum passage, and going
-              through the cites of the word
+              Volunteering with LifeSaversSquad is a great way to meet new
+              friends as well as strengthen existing connections with friends,
+              family or coworkers. As a volunteer, you’ll typically interact
+              with people from diverse backgrounds, which allows you to learn
+              other perspectives.
             </p>
             <Link to="/volunteer" className="btn">
               Join Us
@@ -290,31 +295,37 @@ export const Body = () => {
 
       <section className="reviews" id="reviews">
         <Fade triggerOnce duration={2000} direction="up">
-          <p className="body-about rev-header">TESTIMONIAL</p>
+          {/* <p className="body-about rev-header">QUOTES</p> */}
           <h1 className="rev-header rev-header-1">WHAT PEOPLE ARE SAYING</h1>
         </Fade>
         <div className="all-reviews">
           <section className="review-content">
-            <div className="reviewer">
-              <img src={image} alt={name} />
-              <div>
-                <h3>{name}</h3>
-                <p className="position">{position}</p>
-              </div>
-            </div>
+            <div className="reviewer"></div>
             <h3 className="rev-text">{text}</h3>
+            <h3 className="quote-name">{name}</h3>
           </section>
           <div className="toggle-btn-container">
-            <button className="toggle-btn" onClick={prevPerson}>
+            {/* <button className="toggle-btn" onClick={prevPerson}>
               <FaChevronLeft />
-            </button>
-            <button className="toggle-btn" onClick={nextPerson}>
-              <FaChevronRight />
+            </button> */}
+            <button className="toggle-btn" onClick={randomPerson}>
+              <FaRandom />
             </button>
           </div>
         </div>
       </section>
-      <div className="contact-us">
+      <section className="reviews" id="reviews">
+        <h1 className="rev-header rev-header-1 sponsors">OUR SPONSORS</h1>
+        <div className="sponsors-container">
+          <img src={rotary} alt="rotary logo" />
+          <img
+            src={ri}
+            alt="ri international logo"
+            className="ri-international"
+          />
+        </div>
+      </section>
+      {/* <div className="contact-us">
         <Fade triggerOnce duration={2000} direction="up">
           <h1>Contact Us</h1>
           <div className="contact-us-inputs">
@@ -340,7 +351,7 @@ export const Body = () => {
           <span></span>
           <span></span>
         </button>
-      </div>
+      </div> */}
       {/* <div className="ready">
         <h1>Are You Ready To Volunteer? </h1>
         <Link to="/volunteer" className="button">

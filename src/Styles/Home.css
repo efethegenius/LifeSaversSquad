@@ -21,6 +21,19 @@
   width: 100%;
   height: 70px;
 }
+
+.scroll-nav {
+  top: 0 !important;
+  padding-left: 30px;
+  position: fixed;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.483);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 70px;
+  z-index: 50;
+}
 .row {
   display: flex;
   align-items: center;
@@ -219,6 +232,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .core p {
@@ -265,6 +279,14 @@
     0 16px 16px rgba(0, 0, 0, 0.1);
 }
 
+.core-container ul {
+  font-size: 1rem;
+  color: #808080;
+}
+.core-container ul li {
+  margin-bottom: 10px;
+}
+
 .core-container h1 {
   font-size: 2.1rem;
   margin-bottom: 30px;
@@ -293,6 +315,23 @@
   margin-top: 15px;
 }
 
+.sponsors-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sponsors-container img {
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+.ri-international {
+  max-width: 130px !important;
+}
+
 .stats div {
   display: flex;
   align-items: center;
@@ -306,7 +345,17 @@
   grid-gap: 1rem;
   padding: 1rem 0;
   margin: 0 auto;
+  /* margin-top: 60px; */
+}
+
+.reason {
   margin-top: 60px;
+  margin-bottom: 5px !important;
+}
+
+.images p {
+  font-family: "Barlow", sans-serif;
+  margin-top: 10px;
 }
 
 .card {
@@ -390,7 +439,7 @@
 }
 
 .card:nth-child(3):before {
-  background-image: url(../Photos/pexels-anna-shvets-5029919.jpg);
+  background-image: url(../Photos/jed-villejo-pumko2FFxY0-unsplash.jpg);
 }
 .content {
   position: relative;
@@ -411,7 +460,7 @@
 
 .des {
   font-size: 1.125rem;
-  font-style: italic;
+  /* font-style: italic; */
   line-height: 1.35;
 }
 
@@ -498,8 +547,8 @@
   width: 120px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
   margin: 15px;
 }
 
@@ -549,6 +598,12 @@
   margin: 15px 0;
 }
 
+.review-content .quote-name {
+  color: #272727 !important;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
 .rev-text {
   font-weight: 400 !important;
   font-size: 1.57rem;
@@ -557,6 +612,10 @@
 
 .review-content {
   max-width: 696px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .all-reviews img {
@@ -599,6 +658,10 @@
   font-size: 1.1rem;
   letter-spacing: 4px;
   margin-top: 40px;
+}
+
+#reviews {
+  margin-top: 30px !important;
 }
 
 .ready {
@@ -717,6 +780,32 @@
   width: 100%;
 }
 
+@media screen and (min-width: 500px) {
+  .sponsors-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .sponsors-container img {
+    width: 40%;
+    max-width: 230px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+  }
+
+  .sponsors-container img:hover {
+    transform: scale(1.03);
+  }
+
+  .ri-international {
+    max-width: 120px !important;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .hero-texts h2 {
     font-size: 5.2rem !important;
@@ -815,6 +904,7 @@
     width: 100% !important;
   }
   .core {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-items: center;
@@ -867,7 +957,7 @@
   }
   .core-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     text-align: left;
@@ -876,8 +966,17 @@
     padding: 90px;
   }
 
-  .core-container h1 {
+  .core-container ul {
     align-self: flex-start;
+    font-size: 1.2rem;
+  }
+  .core-container p {
+    font-size: 1.2rem;
+    line-height: 40px;
+  }
+
+  .core-container h1 {
+    align-self: flex-start !important;
     font-size: 3.1rem;
   }
   .hero-texts {
@@ -893,8 +992,9 @@
     display: none;
   }
   .nav-container {
-    padding: 0 30px;
+    padding-left: 30px;
   }
+
   .menu-container {
     background-color: unset;
     position: unset;
@@ -930,12 +1030,13 @@
     margin-bottom: unset;
     margin-right: 40px;
     /* font-size: 1rem; */
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
     cursor: pointer;
   }
   .menu-container .button {
     margin-top: unset;
+    display: none;
   }
 
   .show-menu {
@@ -990,6 +1091,10 @@
   .body-wrapper h1 {
     font-size: 3.2rem;
     line-height: 70px;
+  }
+  .body-wrapper p {
+    font-size: 1.2rem;
+    line-height: 40px;
   }
   .nurse {
     display: unset;

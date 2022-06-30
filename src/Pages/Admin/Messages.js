@@ -10,17 +10,14 @@ export const Messages = () => {
 
   const getAllMessages = async () => {
     try {
-      const allMessages = await fetch(
-        "https://lssapi.herokuapp.com/full-messages",
-        {
-          method: "GET",
-          headers: {
-            "content-type": "application/json",
-            Accept: "application/json",
-            accessToken: localStorage.getItem("accessToken"),
-          },
-        }
-      ).then((res) => res.json());
+      const allMessages = await fetch("/full-messages", {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json",
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      }).then((res) => res.json());
       setReturnedMessages(allMessages);
     } catch (error) {
       console.log(error);
@@ -40,7 +37,10 @@ export const Messages = () => {
           <img src={logo} alt="logo" className="logo" />
           <div className="menu-links">
             <Link to="/admin" className="links">
-              Volunteers
+              Trained
+            </Link>
+            <Link to="/untrained" className="links">
+              UnTrained
             </Link>
 
             <Link to="/messages" className="links">

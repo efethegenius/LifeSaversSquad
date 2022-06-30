@@ -89,6 +89,37 @@
   color: #bcbcdf;
 }
 
+.table-nav {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.table-header {
+  /* background-color: #5f5f9c; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.table-header button {
+  padding: 10px 8px;
+  background-color: #7a7ab3;
+  color: white;
+  border: none;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.table-header button:hover {
+  background-color: #5f5f9c;
+}
+
 .label {
   color: #b2bac8;
   font-size: 14px;

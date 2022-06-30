@@ -4,11 +4,16 @@ const router = express.Router();
 const cors = require("cors");
 
 const dbOperation = require("../dbFiles/dbOperation");
-const { createVolunteer, createMessage } = require("../Controllers/create");
+const {
+  createVolunteer,
+  createMessage,
+  updateTrainee,
+} = require("../Controllers/create");
 
 // router.post("/new_volunteer", createNewVolunteer);
 router.post("/brand_volunteer", createVolunteer);
 // router.post("/new_message", createNewMessage);
 router.post("/brand_message", createMessage);
+router.post("/update_trainee", updateTrainee);
 
 module.exports = router;

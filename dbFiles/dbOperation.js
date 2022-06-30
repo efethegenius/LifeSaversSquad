@@ -51,10 +51,25 @@ const createMessage = async (message) => {
     console.log(error);
   }
 };
+const updateTrainee = async (trainee) => {
+  try {
+    for (let i = 0; i <= trainee.selectedFlatRows.length - 1; i++) {
+      let sql = `update tbl_volunteers set isTrained = 1 where id =  '${trainee.selectedFlatRows[i].id}'`;
+      pool.query(sql, function (err, result, fields) {
+        if (err) console.log(err);
+      });
+    }
+
+    console.log("Connected!");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
   createMessage,
   createVolunteer,
+  updateTrainee,
   // getLogin,
   pool,
 };
