@@ -23,14 +23,17 @@ export const AdminPanel = () => {
 
   const getAllVolunteers = async () => {
     try {
-      const allVolunteers = await fetch("/full-volunteer", {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-          accessToken: localStorage.getItem("accessToken"),
-        },
-      }).then((res) => res.json());
+      const allVolunteers = await fetch(
+        "https://lssapi.herokuapp.com/full-volunteer",
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            Accept: "application/json",
+            accessToken: localStorage.getItem("accessToken"),
+          },
+        }
+      ).then((res) => res.json());
       console.log(allVolunteers);
       setReturnedVolunteers(allVolunteers);
     } catch (error) {

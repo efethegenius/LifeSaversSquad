@@ -99,18 +99,21 @@ export const UntrainedVolunteers = () => {
   const { globalFilter, pageIndex, pageSize } = state;
 
   const updateTraining = async () => {
-    const newData = await fetch("/create/update_training", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        ...{
-          selectedFlatRows: selectedFlatRows.map((row) => row.original),
+    const newData = await fetch(
+      "https://lssapi.herokuapp.com/create/update_training",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json",
         },
-      }),
-    }).then((res) => res.json());
+        body: JSON.stringify({
+          ...{
+            selectedFlatRows: selectedFlatRows.map((row) => row.original),
+          },
+        }),
+      }
+    ).then((res) => res.json());
     setIsApply(!isApply);
     setReturnedData(newData[0]);
   };
