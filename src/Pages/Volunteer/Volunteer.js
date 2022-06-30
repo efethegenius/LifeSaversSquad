@@ -59,9 +59,8 @@ export const Volunteer = () => {
           <div className="apply-alert">
             <h1>Thank You For Applying</h1>
             <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour.
+              Your details have been saved and we would contact you for your
+              training to become a licensed LifeSaverSquad volunteer!
             </p>
             <Link to="/" className="button">
               OK
