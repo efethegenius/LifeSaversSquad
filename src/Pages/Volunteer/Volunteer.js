@@ -81,9 +81,9 @@ export const Volunteer = () => {
           {/* <img src={logo} alt="logo" className="logo" /> */}
           <h1>Volunteer Form</h1>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour.
+            Please fill in all details on the form to get registered with
+            LifeSaversSquad. Once your registration is approved, we would
+            contact you for a hands-on training.
           </p>
         </div>
         <section className="form">
