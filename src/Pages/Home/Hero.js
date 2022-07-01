@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiMenuAlt1 } from "react-icons/hi";
-import { FaTimes } from "react-icons/fa";
+import { FaMailBulk, FaPhone, FaTimes } from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
 import { Body } from "./Body";
 import { Footer } from "./Footer";
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { photos } from "../Components/data";
 import logo from "../../Photos/logo.png";
+import { AiFillMail } from "react-icons/ai";
 
 export const Hero = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -44,7 +45,14 @@ export const Hero = () => {
     <>
       <section className="hero-container">
         <div className="urgent-nav">
-          <h3>NEED URGENT HELP ? CALL 08068886692</h3>
+          <div>
+            <p>
+              <FaPhone /> 08068886692
+            </p>
+            <p>
+              <AiFillMail /> admin@lifesaverssquad.com
+            </p>
+          </div>
         </div>
         <div className={scroll ? "nav-container scroll-nav" : "nav-container"}>
           {/* <img src={logo} alt="Logo" className="logo" /> */}
@@ -88,6 +96,16 @@ export const Hero = () => {
                 <p onClick={() => setIsMenu(false)}>Values</p>
               </ScrollLink>
               <ScrollLink
+                to="reason"
+                smooth={true}
+                duration={3000}
+                spy={true}
+                // activeClass="active"
+                offset={-60}
+              >
+                <p onClick={() => setIsMenu(false)}>Benefits</p>
+              </ScrollLink>
+              <ScrollLink
                 to="reviews"
                 smooth={true}
                 duration={3000}
@@ -97,16 +115,6 @@ export const Hero = () => {
                 offset={-60}
               >
                 <p onClick={() => setIsMenu(false)}>Quotes</p>
-              </ScrollLink>
-              <ScrollLink
-                to="reason"
-                smooth={true}
-                duration={3000}
-                spy={true}
-                // activeClass="active"
-                offset={-60}
-              >
-                <p onClick={() => setIsMenu(false)}>Benefits</p>
               </ScrollLink>
               <ScrollLink
                 to="sponsors"

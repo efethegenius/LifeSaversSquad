@@ -22,6 +22,25 @@
   height: 70px;
 }
 
+.not-found {
+  /* background-color: red; */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 7rem;
+}
+
+.not-found h2 {
+  font-size: 1.5rem;
+}
+
 .scroll-nav {
   top: 0 !important;
   padding-left: 30px;
@@ -84,7 +103,7 @@
 }
 .urgent-nav {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   padding: 15px;
@@ -92,6 +111,13 @@
   width: 100%;
   text-align: center;
   height: 70px;
+}
+
+.urgent-nav div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .ham-menu {
@@ -863,6 +889,15 @@
     width: 90%;
     margin-bottom: 50px;
   }
+
+  .not-found h1 {
+    font-size: 10rem;
+  }
+
+  .not-found h2 {
+    font-size: 3rem;
+  }
+
   .core-btn-container button {
     width: unset;
     background-color: white;

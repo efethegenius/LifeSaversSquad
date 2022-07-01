@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-import { AiOutlineLeft } from "react-icons/ai";
+import { AiOutlineLeft, AiFillMail } from "react-icons/ai";
 import { GoToTop } from "../Components/GoToTop";
 import logo from "../../Photos/logo.png";
+import { FaMailBulk, FaPhone, FaTimes } from "react-icons/fa";
 
 export const Volunteer = () => {
   const [returnedData, setReturnedData] = useState([]);
@@ -69,7 +70,14 @@ export const Volunteer = () => {
         </Fade>
       </div>
       <div className="urgent-nav">
-        <h3>NEED URGENT HELP ? CALL 08068886692</h3>
+        <div>
+          <p>
+            <FaPhone /> 08068886692
+          </p>
+          <p>
+            <AiFillMail /> admin@lifesaverssquad.com
+          </p>
+        </div>
       </div>
       <div className="back">
         <Link to="/" className="back-btn">

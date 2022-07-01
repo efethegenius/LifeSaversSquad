@@ -21,6 +21,7 @@ import { useState, useEffect } from "react";
 import { Messages } from "./Pages/Admin/Messages";
 import { UntrainedVolunteers } from "./Pages/Admin/UntrainedVolunteers";
 import { InTraining } from "./Pages/Admin/InTraining";
+import { NotFound } from "./Pages/NotFound";
 function App() {
   const [authState, setAuthState] = useState(false);
 
@@ -47,6 +48,7 @@ function App() {
             path="/admin"
             element={authState ? <AdminPanel /> : <AdminLogin />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </AuthContext.Provider>
